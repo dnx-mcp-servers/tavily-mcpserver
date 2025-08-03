@@ -4,8 +4,20 @@ using Tavily.McpServer.ClientSdk.Models.Search;
 
 namespace Tavily.McpServer.ClientSdk.JsonConverter;
 
+/// <summary>
+/// A custom JSON converter for serializing and deserializing a list of <see cref="Image"/> objects.
+/// Supports both array of objects and array of strings representations.
+/// </summary>
 internal class ImageJsonConverter : JsonConverter<List<Image>>
 {
+    /// <summary>
+    /// Reads and converts the JSON to a list of <see cref="Image"/> objects.
+    /// </summary>
+    /// <param name="reader">The reader to read from.</param>
+    /// <param name="typeToConvert">The type to convert.</param>
+    /// <param name="options">Options to use for deserialization.</param>
+    /// <returns>A list of <see cref="Image"/> objects.</returns>
+    /// <exception cref="JsonException">Thrown when the JSON is not in the expected format.</exception>
     public override List<Image> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         if (reader.TokenType != JsonTokenType.StartArray)
@@ -53,6 +65,12 @@ internal class ImageJsonConverter : JsonConverter<List<Image>>
         return images;
     }
 
+    /// <summary>
+    /// Writes a list of <see cref="Image"/> objects as JSON.
+    /// </summary>
+    /// <param name="writer">The writer to write to.</param>
+    /// <param name="value">The list of <see cref="Image"/> objects to write.</param>
+    /// <param name="options">Options to use for serialization.</param>
     public override void Write(Utf8JsonWriter writer, List<Image> value, JsonSerializerOptions options)
     {
         writer.WriteStartArray();

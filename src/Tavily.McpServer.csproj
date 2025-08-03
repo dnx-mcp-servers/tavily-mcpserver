@@ -15,7 +15,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageId>Tavily.McpServer</PackageId>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageVersion>0.1.0-beta</PackageVersion>
+    <PackageVersion>0.2.0-beta</PackageVersion>
     <PackageTags>tavily;search;extract;map;crawl;server; stdio;</PackageTags>
     <Description>Production ready MCP server with real-time search, extract, map and crawl powered by Tavily.</Description>
   </PropertyGroup>
